@@ -2,7 +2,7 @@
 
 @section('content')    
 
-    @php($date = date('d-m-Y'))
+    @php($date = date('d-M-Y'))
 
 
     <div class="row" style="padding: 20px;">

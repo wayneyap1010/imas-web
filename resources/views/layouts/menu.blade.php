@@ -5,7 +5,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link">
+    <a href="{{ route('report') }}" class="nav-link">
         <i class="nav-icon fas fa-file-excel"></i>
         <p>Report</p>
     </a>

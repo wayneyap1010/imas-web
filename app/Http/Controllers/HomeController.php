@@ -23,41 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $chartData = json_encode(data: {
-        //     chart: { labels: ['First', 'Second', 'Third'] },
-        //     datasets: [
-        //         { name: 'Sample 1', values: [10, 3, 7] },
-        //         { name: 'Sample 2', values: [1, 6, 2] },
-        //     ],
-        // });
-
-        // $arrTest = array('data' => 
-        //     'chart' => 
-        //         'labels' => [
-        //             'First',
-        //             'Second',
-        //             'Third'
-        //         ], 
-        //     'datasets' => [
-        //         [
-        //             {
-        //                 'name' => 'Sample 1',
-        //                 'values' => [10, 3, 7]
-        //             },
-        //             {
-        //                 'name' => 'Sample 2',
-        //                 'values' => [1, 6, 2]
-        //             },
-        //         ]
-        //     ]
-        // );
-
-        // chart: { labels: ['First', 'Second', 'Third'] },
-        // datasets: [
-        //     { name: 'Sample 1', values: [10, 10, 7] },
-        //     { name: 'Sample 2', values: [6, 6, 2] },
-        // ],
-
         $dim = cal_days_in_month(CAL_GREGORIAN, date('m'), date('Y'));
         for($i=1; $i<=$dim; $i++){
             $arrDim[] = $i;
