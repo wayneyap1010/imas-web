@@ -47,7 +47,7 @@
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <!-- <a href="#" class="btn btn-default btn-flat">Profile</a> -->
                         <a href="#" class="btn btn-default btn-flat float-right"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Sign out
@@ -74,7 +74,7 @@
     <!-- Main Footer -->
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
+            <b>Version</b> 1.0.2
         </div>
         <strong>Copyright &copy; 200 <a href="#">Windtertech</a>.</strong> All rights
         reserved.
