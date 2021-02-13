@@ -3,9 +3,9 @@
 @section('content')
 
 @component('component.card', [
-'title' => 'Report Management',
-'small_title' => 'Employee Report',
-'button_title' => 'Generate Excel'
+'title' => 'Admin Management',
+'small_title' => 'Admin List',
+'button_title' => 'Create Admin'
 ])
 
 @include('layouts.datatable', ['test' => 'testing'])

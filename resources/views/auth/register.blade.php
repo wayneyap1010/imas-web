@@ -32,7 +32,7 @@
                     <input type="text"
                         name="company"
                         class="form-control @error('company') is-invalid @enderror"
-                        value=""
+                        value="{{ old('company') }}"
                         placeholder="Company Name">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-building"></span></div>

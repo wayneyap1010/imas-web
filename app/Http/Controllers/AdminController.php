@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +23,6 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        return view('admin_management');
     }
 }
