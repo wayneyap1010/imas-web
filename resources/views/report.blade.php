@@ -5,10 +5,12 @@
 @component('component.card', [
 'title' => 'Report Management',
 'small_title' => 'Employee Report',
-'button_title' => 'Generate Excel'
+'button' => true,
+'button_title' => 'Generate Excel',
+'button_url' => '#'
 ])
 
-@include('layouts.datatable', ['test' => 'testing'])
+@include('component.datatable', ['test' => 'testing'])
 @endcomponent
 
 <style>

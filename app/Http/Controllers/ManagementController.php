@@ -25,4 +25,9 @@ class ManagementController extends Controller
     {
         return view('management');
     }
+
+    public function create()
+    {
+        return view('management_create');
+    }
 }

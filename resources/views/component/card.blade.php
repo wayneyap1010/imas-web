@@ -18,9 +18,13 @@
       <div class="col-md-6">
         <h2>{{ $small_title }}</h2>
       </div>
+      @if($button == true)
       <div class="col-md-6 text-right">
-        <button type="button" class="btn btn-primary">{{ $button_title }}</button>
+        <a href="{{ $button_url }}">
+          <button type="button" class="btn btn-primary">{{ $button_title }}</button>
+        </a>
       </div>
+      @endif
     </div>
     <div class="card-body">
       {{ $slot }}

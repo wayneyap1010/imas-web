@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use DB;
 use Spatie\Permission\Models\Role;
 use Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class RegisterController extends Controller
 {
@@ -26,6 +27,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    use HasRoles;
 
     /**
      * Where to redirect users after registration.
@@ -73,17 +75,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        // $user->assignRole('company');
+        $user->assignRole('company');
 
         DB::table('company')->insert([
             'users_id' => $user->id,
             'comp_name' => $data['company'],
             'created_at' => date('Y-m-d H:i:s')
         ]);
-
-        // $user_data = User::find($user->id);
-        // $user_data->assignRole('company');
-        // Auth::user()->assignRole('company');
 
         return $user;
     }

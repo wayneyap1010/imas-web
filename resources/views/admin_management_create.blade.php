@@ -4,13 +4,13 @@
 
 @component('component.card', [
 'title' => 'Admin Management',
-'small_title' => 'Admin List',
-'button' => true,
+'small_title' => 'Create Admin',
+'button' => false,
 'button_title' => 'Create Admin',
-'button_url' => "management/create"
+'button_url' => "admin.management.store"
 ])
 
-@include('component.datatable', ['db_user' => $db_user])
+@include('component.user_form')
 @endcomponent
 
 <style>

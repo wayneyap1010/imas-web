@@ -4,13 +4,13 @@
 
 @component('component.card', [
 'title' => 'Employee Management',
-'small_title' => 'Employee List',
-'button' => true,
+'small_title' => 'Create Employee',
+'button' => false,
 'button_title' => 'Create Employee',
-'button_url' => "management/create"
+'button_url' => "#"
 ])
 
-@include('component.datatable', ['test' => 'testing'])
+@include('component.user_form')
 @endcomponent
 
 <style>
