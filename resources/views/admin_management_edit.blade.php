@@ -3,18 +3,21 @@
 @section('content')
 
 @component('component.card', [
-'title' => 'Employee Management',
-'small_title' => 'Create Employee',
+'title' => 'Admin Management',
+'small_title' => 'Edit Admin',
 'button' => false,
-'button_title' => 'Create Employee',
+'button_title' => 'Create Admin',
 'button_url' => "#"
 ])
 
 @include('component.user_form', [
-'form_url' => 'employee.management.store',
-'readonly' => '',
-'form_button_name' => 'Create',
+'form_url' => 'admin.management.update',
+'readonly' => 'readonly',
+'db_user' => $db_user,
+'form_button_name' => 'Update',
+'type' => 'update',
 ])
+
 @endcomponent
 
 <style>

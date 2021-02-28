@@ -4,7 +4,35 @@
 <div class="alert alert-success">{{ Session::get('success') }}</div>
 @endif
 
-{{ Form::open(array('url' => route('admin.management.store'))) }}
+<?php
+$user_id = '';
+$name = '';
+$email = '';
+$mobile = '';
+$city = '';
+$street = '';
+$state = '';
+$postal = '';
+
+if(isset($db_user)){
+$user_id = $db_user->id != '' ? $db_user->id : '';
+$name = $db_user->name != '' ? $db_user->name : '';
+$email = $db_user->email != '' ? $db_user->email : '';
+$mobile = $db_user->mobile != '' ? $db_user->mobile : '';
+$city = $db_user->city != '' ? $db_user->city : '';
+$street = $db_user->street != '' ? $db_user->street : '';
+$state = $db_user->state != '' ? $db_user->state : '';
+$postal = $db_user->postal != '' ? $db_user->postal : '';
+}
+?>
+
+@if(isset($type) && $type == 'update')
+{{ Form::open(array('url' => route($form_url, $user_id))) }}
+@csrf
+{{ method_field('PUT') }}
+@else
+{{ Form::open(array('url' => route($form_url))) }}
+@endif
 <div class="row gutters">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <h6 class="mb-3 text-primary">Personal Details</h6>
@@ -12,19 +40,19 @@
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group required">
       <label for="fullName" class="control-label">Full Name</label>
-      <input type="text" class="form-control" name="fullName" placeholder="Enter full name" required>
+      <input type="text" class="form-control" name="fullName" placeholder="Enter full name" value="{{ $name }}" required>
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group required">
       <label for="eMail" class="control-label">Email</label>
-      <input type="email" class="form-control" name="eMail" placeholder="Enter email ID" required>
+      <input type="email" class="form-control" name="eMail" placeholder="Enter email ID" value="{{ $email }}" required {{ $readonly }}>
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
       <label for="phone">Phone</label>
-      <input type="text" class="form-control" name="phone" placeholder="Enter phone number">
+      <input type="text" class="form-control" name="phone" placeholder="Enter phone number" value="{{ $mobile }}">
     </div>
   </div>
 </div>
@@ -35,25 +63,25 @@
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
       <label for="street">Street</label>
-      <input type="name" class="form-control" name="street" placeholder="Enter Street">
+      <input type="name" class="form-control" name="street" placeholder="Enter Street" value="{{ $street }}">
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
       <label for="city">City</label>
-      <input type="name" class="form-control" name="city" placeholder="Enter City">
+      <input type="name" class="form-control" name="city" placeholder="Enter City" value="{{ $city }}">
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
       <label for="state">State</label>
-      <input type="text" class="form-control" name="state" placeholder="Enter State">
+      <input type="text" class="form-control" name="state" placeholder="Enter State" value="{{ $state }}">
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
       <label for="postal">Postal Code</label>
-      <input type="text" class="form-control" name="postal" placeholder="Enter postal Code">
+      <input type="text" class="form-control" name="postal" placeholder="Enter postal Code" value="{{ $postal }}">
     </div>
   </div>
 </div>
@@ -61,7 +89,7 @@
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="text-right">
       <button type="button" name="submit" name="submit" class="btn btn-secondary">Cancel</button>
-      <button type="submit" name="submit" name="submit" class="btn btn-primary">Create</button>
+      <button type="submit" name="submit" name="submit" class="btn btn-primary">{{ $form_button_name }}</button>
     </div>
   </div>
 </div>

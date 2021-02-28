@@ -11,6 +11,7 @@
     </tr>
   </thead>
   <tbody>
+    @if(isset($db_user))
     @foreach($db_user AS $u)
     <tr>
       <td>{{ $u->name }}</td>
@@ -20,10 +21,11 @@
       <td>{{ $u->created_at }}</td>
       <td>{{ $u->updated_at ?? '-' }}</td>
       <td>
-        <button type="button" class="btn btn-warning">Edit</button>
+        <a href="{{ route($edit_url, $u->id) }}" class="btn btn-warning pull-right">Edit</a>
       </td>
     </tr>
     @endforeach
+    @endif
   </tbody>
   <tfoot>
     <tr>
@@ -37,8 +39,6 @@
     </tr>
   </tfoot>
 </table>
-
-
 
 <script>
   $(document).ready(function() {

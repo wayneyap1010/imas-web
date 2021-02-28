@@ -23,4 +23,5 @@ Route::get('/report', 'ReportController@index')->name('report');
 // Route::get('/management', 'ManagementController@index')->name('management');
 Route::resource('/management', 'ManagementController', ['as' => 'employee']);
 Route::resource('/admin/management', 'AdminController', ['as' => 'admin']);
+Route::resource('/admin/configuration', 'EmailConfigurationController', ['as' => 'admin']);
 Route::get('/profile', 'ProfileController@index')->name('profile');

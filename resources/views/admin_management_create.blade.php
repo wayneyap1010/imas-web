@@ -10,7 +10,11 @@
 'button_url' => "admin.management.store"
 ])
 
-@include('component.user_form')
+@include('component.user_form', [
+'form_url' => 'admin.management.store',
+'readonly' => '',
+'form_button_name' => 'Create',
+])
 @endcomponent
 
 <style>

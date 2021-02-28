@@ -10,7 +10,9 @@
 'button_url' => "management/create"
 ])
 
-@include('component.datatable', ['db_user' => $db_user])
+@include('component.datatable', [
+'edit_url' => 'admin.management.edit',
+])
 @endcomponent
 
 <style>

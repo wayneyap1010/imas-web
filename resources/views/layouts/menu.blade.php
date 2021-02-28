@@ -3,6 +3,7 @@
     $reportActive = Route::currentRouteNamed('report') ? 'active' : '';
     $managementActive = Route::currentRouteNamed('employee.management.index') ? 'active' : '';
     $admin_managementActive = Route::currentRouteNamed('admin.management.index') ? 'active' : '';
+    $email_configurationActive = Route::currentRouteNamed('admin.configuration.index') ? 'active' : '';
 ?>
 
 <li class="nav-item">
@@ -29,3 +30,9 @@
     <p>Admin management</p>
   </a>
 </li>
+{{-- <li class="nav-item">
+  <a href="{{ route('admin.configuration.index') }}" class="nav-link <?php echo $email_configurationActive ?>">
+<i class="nav-icon fas fa-envelope"></i>
+<p>Email configuration</p>
+</a>
+</li> --}}
