@@ -25,3 +25,13 @@ Route::resource('/management', 'ManagementController', ['as' => 'employee']);
 Route::resource('/admin/management', 'AdminController', ['as' => 'admin']);
 Route::resource('/admin/configuration', 'EmailConfigurationController', ['as' => 'admin']);
 Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::get('/clear-cache', function () {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
+
+Route::get('/config-cache', function () {
+    $exitCode = Artisan::call('config:cache');
+    // return what you want
+});
