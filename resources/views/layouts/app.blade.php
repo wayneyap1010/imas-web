@@ -18,6 +18,11 @@
   <!-- Datatables -->
   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
   <script src="http://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+  <?php // TODO: download all cdn into local ?>
+  <!-- Daterangepicker -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
   @yield('third_party_stylesheets')
 

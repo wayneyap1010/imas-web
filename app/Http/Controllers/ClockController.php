@@ -7,7 +7,7 @@ use DB;
 
 class ClockController extends Controller
 {
-    public function in()
+    public function inOut()
     {
         /*
         ---- data from request
@@ -82,6 +82,34 @@ class ClockController extends Controller
                 'success' => false,
                 'type' => 'error',
                 'msg' => 'Clock ' . request('clock_status') . ' existed',
+            ]);
+        }
+    }
+
+    public function monthlyAttendances()
+    {
+        $db_user = DB::table('users')
+            ->select('id')
+            ->where('email', request('email'))
+            ->first();
+
+
+        if (isset($db_user) && !empty($db_user)) {
+            $db_attd = DB::table('attendances')
+                ->select('clock', 'mobile_date', 'mobile_time')
+                ->where('user_id', $db_user->id)
+                ->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $db_attd,
+                'email' => request('email'),
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'data' => '',
+                'email' => request('email'),
             ]);
         }
     }

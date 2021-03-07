@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/report', 'ReportController@index')->name('report');
+Route::get('/report/search', 'ReportController@search')->name('report.search');
 // Route::get('/management', 'ManagementController@index')->name('management');
 Route::resource('/management', 'ManagementController', ['as' => 'employee']);
 Route::resource('/admin/management', 'AdminController', ['as' => 'admin']);

@@ -24,6 +24,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/register', 'UsersController@register');
     Route::get('/logout', 'UsersController@logout')->middleware('auth:api');
 
-    Route::post('/clockin', 'ClockController@in');
-    Route::post('/clockout', 'ClockController@out');
+    Route::post('/clock', 'ClockController@inOut');
+    Route::post('/monthly_history', 'ClockController@monthlyAttendances');
 });

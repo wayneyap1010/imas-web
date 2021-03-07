@@ -10,7 +10,10 @@
 'button_url' => '#'
 ])
 
-@include('component.datatable', ['test' => 'testing'])
+@include('component.datatable_report', [
+'db_attds' => isset($db_attds) && !empty($db_attds) ? $db_attds : '',
+'search_date' => $search_date,
+])
 @endcomponent
 
 <style>
