@@ -14,9 +14,8 @@ class CreateCompanyTable extends Migration
     public function up()
     {
         Schema::create('company', function (Blueprint $table) {
-            $table->id('id');
-            $table->integer('users_id');
-            $table->string('comp_name');
+            $table->id();
+            $table->string('comp_name')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });

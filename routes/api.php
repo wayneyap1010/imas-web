@@ -19,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::middleware('auth:api')->get('/v1', function (Request $request) {
+Route::group(['prefix' => 'v1'], function () {
     Route::post('/login', 'UsersController@login');
     Route::post('/register', 'UsersController@register');
-    Route::get('/logout', 'UsersController@logout');
-    return $request->user();
+    Route::get('/logout', 'UsersController@logout')->middleware('auth:api');
+
+    Route::post('/clockin', 'ClockController@in');
+    Route::post('/clockout', 'ClockController@out');
 });

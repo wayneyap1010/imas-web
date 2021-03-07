@@ -32,8 +32,6 @@ class ManagementController extends Controller
     {
         $auth_id = Auth()->user()->id;
 
-        $company_id = DB::table('company')->select('id')->where('users_id', $auth_id)->first();
-
         $db_user = DB::table('users AS u')->select(
             'u.id',
             'u.name',
@@ -50,7 +48,7 @@ class ManagementController extends Controller
             ->leftJoin('model_has_roles AS mhr', 'mhr.model_id', 'u.id')
             ->leftJoin('roles AS r', 'r.id', 'mhr.role_id')
             ->where('r.name', 'employee')
-            ->where('u.comp_id', $company_id->id)
+            ->where('u.comp_id', $this->company_id())
             ->get();
 
         return view('management', [
@@ -66,16 +64,13 @@ class ManagementController extends Controller
     public function store(Request $req)
     {
         $sendMail = new SendMailController();
-        $auth_id = Auth()->user()->id;
-
-        $company_id = DB::table('company')->select('id')->where('users_id', $auth_id)->first();
 
         try {
             $random_pass = Str::random(12);
             $hash_pass = Hash::make($random_pass);
 
             $user_id = DB::table('users')->insertGetId([
-                'comp_id' => $company_id->id,
+                'comp_id' => $this->company_id(),
                 'name' => $req['fullName'],
                 'email' => $req['eMail'],
                 'password' => $hash_pass,
@@ -132,5 +127,18 @@ class ManagementController extends Controller
 
         Session::flash('success', "Updated!");
         return Redirect::back();
+    }
+
+    public function company_id()
+    {
+        $auth_id = Auth()->user()->id;
+
+        $company_id = DB::table('company AS c')
+            ->select('c.id')
+            ->leftJoin('users AS u', 'u.comp_id', 'c.id')
+            ->where('u.id', $auth_id)
+            ->first();
+
+        return $company_id->id;
     }
 }

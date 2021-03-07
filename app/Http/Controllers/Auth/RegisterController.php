@@ -12,6 +12,8 @@ use DB;
 use Spatie\Permission\Models\Role;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Session;
+use Redirect;
 
 class RegisterController extends Controller
 {
@@ -69,19 +71,47 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // Role::create(['name' => 'company']);
+        // Role::create(['name' => 'admin']);
+        // Role::create(['name' => 'employee']);
+        // Role::create(['name' => 'developer']);
+
+        // TODO: make the register check for duplicated company name
+        // try {
+        //     $company_id = DB::table('company')->insertGetId([
+        //         'comp_name' => $data['company'],
+        //         'created_at' => date('Y-m-d H:i:s')
+        //     ]);
+
+        //     $user = User::create([
+        //         'name' => $data['name'],
+        //         'email' => $data['email'],
+        //         'comp_id' => $company_id,
+        //         'password' => Hash::make($data['password']),
+        //     ]);
+
+        //     $user->assignRole('company');
+
+        //     return $user;
+        // } catch (\Illuminate\Database\QueryException $e) {
+        //     Session::flash('message', 'This is a message!');
+        //     Session::flash('alert-class', 'alert-danger');
+        // }
+
+
+        $company_id = DB::table('company')->insertGetId([
+            'comp_name' => $data['company'],
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'comp_id' => $company_id,
             'password' => Hash::make($data['password']),
         ]);
 
         $user->assignRole('company');
-
-        DB::table('company')->insert([
-            'users_id' => $user->id,
-            'comp_name' => $data['company'],
-            'created_at' => date('Y-m-d H:i:s')
-        ]);
 
         return $user;
     }
