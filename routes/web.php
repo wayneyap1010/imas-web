@@ -36,3 +36,8 @@ Route::get('/config-cache', function () {
     $exitCode = Artisan::call('config:cache');
     // return what you want
 });
+
+Route::get('/passport-client', function () {
+    $exitCode = Artisan::call('passport:client');
+    // return what you want
+});

@@ -12,7 +12,7 @@
 
 @include('component.datatable_report', [
 'db_attds' => isset($db_attds) && !empty($db_attds) ? $db_attds : '',
-'search_date' => $search_date,
+'search_date' => isset($search_date) && !empty($search_date) ? $search_date : '',
 ])
 @endcomponent
 
