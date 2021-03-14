@@ -6,8 +6,11 @@
       <div class="col-6">
         <input type="text" class="form-control" name="daterange" value="{{ isset($search_date) && !empty($search_date) ? $search_date : date('d/m/Y d/m/Y') }}" />
       </div>
-      <div class="col-6">
+      <div class="col-3">
         <button type="submit" class="btn btn-success">Search</button>
+      </div>
+      <div class="col-3">
+        <button type="submit" name="submit" value="export" class="btn btn-info">Export</button>
       </div>
     </div>
   </div>
@@ -19,7 +22,7 @@
 <br>
 <hr>
 
-<table id="example" class="display" style="width:100%;">
+<table id="datatable" class="display" style="width:100%;">
   <thead>
     <tr>
       <th>Date</th>
@@ -70,7 +73,9 @@
 
 <script>
   $(document).ready(function() {
-    $('#example').DataTable();
+    $('#datatable').DataTable({
+      "scrollX": true
+    });
   });
 
 

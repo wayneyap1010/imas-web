@@ -35,7 +35,7 @@ $postal = $db_user->postal != '' ? $db_user->postal : '';
 @endif
 <div class="row gutters">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-    <h6 class="mb-3 text-primary">Personal Details</h6>
+    <h6 class="mb-3 text-primary"><u>Personal Details</u></h6>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group required">
@@ -58,7 +58,7 @@ $postal = $db_user->postal != '' ? $db_user->postal : '';
 </div>
 <div class="row gutters">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-    <h6 class="mb-3 text-primary">Address</h6>
+    <h6 class="mb-3 text-primary"><u>Address</u></h6>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
@@ -163,7 +163,7 @@ $postal = $db_user->postal != '' ? $db_user->postal : '';
     border-radius: 2px;
     font-size: .825rem;
     background: white;
-    color: #bcd0f7;
+    color: #5374b5;
   }
 
   div.form-group.required .control-label:after {

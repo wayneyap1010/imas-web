@@ -32,7 +32,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
     <!-- Main Header -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-orange navbar-light">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -84,7 +84,7 @@
     </div>
 
     <!-- Main Footer -->
-    <footer class="main-footer">
+    <footer class="main-footer" style="background-color:#fd7e14; color:white;">
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 1.0.2
       </div>

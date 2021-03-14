@@ -1,13 +1,13 @@
 @php($date = date('d-M-Y'))
 
 <div class="container">
-  <div class="card">
+  <div class="card" style="background-color: indianred;">
     <div class="row" style="padding: 20px;">
       <div class="col-md-6">
-        <h1 class="text-black-50">{{ $title }}</h1>
+        <h3 class="text-black-50">{{ $title }}</h3>
       </div>
       <div class="col-md-6 text-right">
-        <h1 class="text-black-50">{{ $date }}</h1>
+        <h3 class="text-black-50">{{ $date }}</h3>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
   <div class="card">
     <div class="row" style="padding: 20px 20px 0 20px;">
       <div class="col-md-6">
-        <h2>{{ $small_title }}</h2>
+        <h2 style="color:black;">{{ $small_title }}</h2>
       </div>
       @if($button == true)
       <div class="col-md-6 text-right">

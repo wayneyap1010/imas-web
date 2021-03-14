@@ -5,7 +5,7 @@
 @component('component.card', [
 'title' => 'Report Management',
 'small_title' => 'Employee Report',
-'button' => true,
+'button' => false,
 'button_title' => 'Generate Excel',
 'button_url' => '#'
 ])
