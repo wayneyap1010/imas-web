@@ -88,7 +88,6 @@ $postal = $db_user->postal != '' ? $db_user->postal : '';
 <div class="row gutters">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="text-right">
-      <button type="button" name="submit" name="submit" class="btn btn-secondary">Cancel</button>
       <button type="submit" name="submit" name="submit" class="btn btn-primary">{{ $form_button_name }}</button>
     </div>
   </div>

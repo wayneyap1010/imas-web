@@ -91,7 +91,7 @@ class AdminController extends Controller
 
             Session::flash('success', "New Admin added, email sent!");
             return Redirect::back();
-        } catch (QueryException $e) {
+        } catch (\Exception  $e) {
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062) {
                 Session::flash('error', "The email has been exist!");

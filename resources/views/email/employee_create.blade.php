@@ -1,4 +1,4 @@
 <h1>Hi, {{ $data[0] }}</h1>
 <h3 style="color:red;">WARNING: Please reset your password once login.</h3>
 <p>Please click this link and download from <a href="#">Google Play</a></p>
-<p>to login with this password {{ $data[1] }}.</p>
+<p>to login with this password "{{ $data[1] }}".</p>
