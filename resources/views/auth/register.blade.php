@@ -13,7 +13,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition register-page" style="background-color: #fd7e14;">
   <div class="register-box">
     <div class="register-logo">
       <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
