@@ -14,6 +14,7 @@
 
 </head>
 <body class="hold-transition register-page" style="background-color: #fd7e14;">
+  <img src="{{ asset('/img/imas-logo.png') }}" style="width: 10%;">
   <div class="register-box">
     <div class="register-logo">
       <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>

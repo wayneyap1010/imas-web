@@ -13,7 +13,8 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-color: rgb(253, 126, 20);">
+  <img src="{{ asset('/img/imas-logo.png') }}" style="width: 10%;">
   <div class="login-box">
     <div class="login-logo">
       <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>

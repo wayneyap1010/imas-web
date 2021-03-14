@@ -123,6 +123,10 @@ class ManagementController extends Controller
         $user->postal = $req['postal'];
         $user->updated_at = date('Y-m-d H:i:s');
 
+        if (isset($req['password']) && !empty($req['password'])) {
+            $user->password = Hash::make($req['password']);
+        }
+
         $user->save();
 
         Session::flash('success', "Updated!");
