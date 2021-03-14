@@ -27,6 +27,8 @@
   @yield('third_party_stylesheets')
 
   @stack('page_css')
+
+  <link rel="icon" href="{{ asset('/img/imas-logo.png') }}" type="image/x-icon" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
