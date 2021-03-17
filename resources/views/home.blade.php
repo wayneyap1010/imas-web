@@ -8,7 +8,7 @@
         <div class="card" style="background-color: indianred;">
             <div class="row" style="padding: 20px;">
                 <div class="col-md-6">
-                    <h3 class="text-black-50">Monthly Attendace Graph</h3>
+                    <h3 class="text-black-50">Daily Attendace Graph</h3>
                 </div>
                 <div class="col-md-6 text-right">
                     <h3 class="text-black-50">{{ $date }}</h3>

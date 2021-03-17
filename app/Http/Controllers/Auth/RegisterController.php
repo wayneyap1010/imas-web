@@ -57,6 +57,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'company' => ['unique:company,comp_name', 'string', 'max:255', 'required'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -71,34 +72,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // Role::create(['name' => 'company']);
-        // Role::create(['name' => 'admin']);
-        // Role::create(['name' => 'employee']);
-        // Role::create(['name' => 'developer']);
-
-        // TODO: make the register check for duplicated company name
-        // try {
-        //     $company_id = DB::table('company')->insertGetId([
-        //         'comp_name' => $data['company'],
-        //         'created_at' => date('Y-m-d H:i:s')
-        //     ]);
-
-        //     $user = User::create([
-        //         'name' => $data['name'],
-        //         'email' => $data['email'],
-        //         'comp_id' => $company_id,
-        //         'password' => Hash::make($data['password']),
-        //     ]);
-
-        //     $user->assignRole('company');
-
-        //     return $user;
-        // } catch (\Illuminate\Database\QueryException $e) {
-        //     Session::flash('message', 'This is a message!');
-        //     Session::flash('alert-class', 'alert-danger');
-        // }
-
-
         $company_id = DB::table('company')->insertGetId([
             'comp_name' => $data['company'],
             'created_at' => date('Y-m-d H:i:s')

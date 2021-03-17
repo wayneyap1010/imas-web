@@ -11,16 +11,25 @@ class UsersController extends Controller
 {
     public function login()
     {
-        // TODO: if admin cannot login on app
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
-            $success['token'] = $user->createToken('appToken')->accessToken;
-            //After successfull authentication, notice how I return json parameters
-            return response()->json([
-                'success' => true,
-                'token' => $success,
-                'user' => $user
-            ]);
+
+            //--only allow employee or developer to login
+            if ($user->hasRole('employee') || $user->hasRole('developer')) {
+                $success['token'] = $user->createToken('appToken')->accessToken;
+                //After successfull authentication, notice how I return json parameters
+                return response()->json([
+                    'success' => true,
+                    'token' => $success,
+                    'user' => $user
+                ]);
+            } else {
+                //if authentication is unsuccessfull, notice how I return json parameters
+                return response()->json([
+                    'success' => false,
+                    'message' => 'You are not an employee',
+                ], 401);
+            }
         } else {
             //if authentication is unsuccessfull, notice how I return json parameters
             return response()->json([

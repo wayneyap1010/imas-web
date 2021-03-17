@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth/login');
 });
+
+// Route::group(['middleware' => 'role:developer'], function () {
+//     Auth::logout();
+//     return redirect('login')->withErrors(['Your account is inactive']);
+// });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

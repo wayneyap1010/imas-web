@@ -56,14 +56,14 @@ $postal = $db_user->postal != '' ? $db_user->postal : '';
     </div>
   </div>
 
-  @if(isset($type) && $form_url == 'employee.management.update')
+  {{-- @if(isset($type) && $form_url == 'employee.management.update')
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
       <label for="phone">Password</label>
       <input type="text" class="form-control" name="password" placeholder="Enter new password">
     </div>
   </div>
-  @endif
+  @endif --}}
 
 </div>
 <div class="row gutters">
