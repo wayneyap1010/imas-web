@@ -16,13 +16,18 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> -->
 
   <!-- Datatables -->
-  <link rel="stylesheet" href="http://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-  <script src="http://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-  <?php // TODO: download all cdn into local ?>
+  {{-- <link rel="stylesheet" href="http://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"> --}}
+  {{-- <script src="http://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script> --}}
+  <link rel="stylesheet" href="{{ asset('/css/datatables.css') }}">
+  <script src="{{ asset('/js/datatables.js') }}"></script>
+
   <!-- Daterangepicker -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  {{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> --}}
+  <script type="text/javascript" src="{{ asset('/js/moment.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/js/daterangepicker.js') }}"></script>
+  <link rel="stylesheet" type="text/css" href="{{ asset('/css/daterangepicker.css') }}" />
 
   @yield('third_party_stylesheets')
 
@@ -62,7 +67,7 @@
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
-              {{-- <a href="{{ route('profile') }}" class="btn btn-default btn-flat">Profile</a> --}}
+              <a href="{{ route('profile') }}" class="btn btn-default btn-flat">Profile</a>
               <a href="#" class="btn btn-default btn-flat float-right" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Sign out
               </a>

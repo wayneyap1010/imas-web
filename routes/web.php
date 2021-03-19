@@ -32,6 +32,7 @@ Route::resource('/management', 'ManagementController', ['as' => 'employee']);
 Route::resource('/admin/management', 'AdminController', ['as' => 'admin']);
 Route::resource('/admin/configuration', 'EmailConfigurationController', ['as' => 'admin']);
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile', 'ProfileController@update')->name('profile.update');
 // Route::get('/export', 'ExportController@index')->name('export');
 
 Route::get('/clear-cache', function () {
