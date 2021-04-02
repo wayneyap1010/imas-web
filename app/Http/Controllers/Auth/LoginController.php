@@ -59,9 +59,10 @@ class LoginController extends Controller
         $db_user = DB::table('users AS u')
             ->leftJoin('model_has_roles AS mhr', 'mhr.model_id', 'u.id')
             ->leftJoin('roles AS r', 'r.id', 'mhr.role_id')
-            ->where('u.email', $request['email'])
-            ->whereIn('r.name', ['admin', 'developer'])
-            ->first();
+            ->where(function ($query) use ($request) {
+                $query->where('u.email', $request['email'])
+                    ->whereIn('r.name', ['company', 'admin', 'developer']);
+            })->first();
 
         if (isset($db_user) && !empty($db_user)) {
             $credentials = $request->only('email', 'password');
